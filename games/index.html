@@ -1,0 +1,361 @@
+<!DOCTYPE html><html><head>
+    <meta name="viewport" charset="UTF-8" content="width=device-width">
+    <title>The Game Store</title>
+	<link rel="icon" type="image/png" href="/favicon2.png">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Amatic+SC|Karla">
+
+	<style>
+body {
+  background-color: #CE7879;
+  font-family: "Karla", Arial, sans-serif;
+  color: #162719;
+  background: url("https://file.garden/ZA_UJlkUN2HXHENQ/images/backgrounds/brickbg.jpg");
+  background-attachment: fixed;
+  }
+
+.wrapper {
+  display: flex;
+  flex-wrap: nowrap;    /* keep sidebar + main on one row */
+  width: 90%;
+  margin: auto;
+}
+
+.header {
+	width: 80%;
+	margin: auto;
+	text-align: center;
+	font-family: "Amatic SC", Papyrus, fantasy;
+	color: #F2E8CF;
+	background: url("https://file.garden/ZA_UJlkUN2HXHENQ/images/backgrounds/woodbg.jpg");
+	border: 2px solid #162719;
+}
+
+.sidebar {
+  flex: 0 0 260px;      /* fixed sidebar width (adjust as desired) */
+  margin: 1%;
+}
+
+.imgbox {
+	border: 3px double #162719;
+	background: #7AAC5D;
+	margin-bottom: 3%;
+}
+
+.imgbox img {
+  max-width: 100%;
+  height: auto;
+  }
+
+.menu {
+	height: auto;
+	text-align: center;
+	line-height: 200%;
+	color: #F2E8CF;
+	background-color: #162719;
+	border: 10px solid;
+	border-image: url('https://file.garden/ZA_UJlkUN2HXHENQ/images/backgrounds/woodbg.jpg') 20% round;
+	outline: 2px solid #162719;
+}
+
+.main {
+  flex: 1 1 auto;       /* main takes remaining width */
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2% 2%;
+  align-content: flex-start; /* avoids big vertical gaps between rows */
+  align-items: flex-start;
+}
+
+.box {
+	height: auto;
+	overflow: auto;
+	padding: 2%;
+	background: #F2E8CF;
+	border: 3px double #162719;
+	margin: 1%;
+}
+
+.subbox {
+	width: 42%;
+	height: auto;
+	overflow: auto;
+	padding: 2%;
+	border: 3px double #162719;
+	background: #7AAC5D;
+	margin: 1%;
+}
+
+.subbox a:link, .subbox a:visited {
+	color: #F2E8CF;
+	text-decoration: none;
+}
+
+.subbox a:hover, .subbox a:active {
+	color: #CE7879;
+	text-decoration: underline;
+	}
+
+.footer {
+	width: 65%;
+	margin-left: 25%;
+	text-align: center;
+	font-family: "Amatic SC", Papyrus, fantasy;
+	color: #F2E8CF;
+	background: url("https://file.garden/ZA_UJlkUN2HXHENQ/images/backgrounds/woodbg.jpg");
+	border: 2px solid #162719;
+}
+
+a:link, a:visited {
+	color: #7AAC5D;
+	text-decoration: none;
+	}
+
+a:hover, a:active {
+	color: #CE7879;
+	text-decoration: underline;
+	}
+
+h1, h2, h3, h4 {
+	font-family: "Amatic SC", Papyrus, fantasy;
+	margin: 0.25em;
+	padding: 0;
+	text-align: center;
+}
+
+h1 {
+	font-size: 3em;
+}
+
+h2 {
+	font-size: 2.5em;
+}
+
+h3 {
+	font-size: 2em;
+}
+
+h4 {
+	font-size: 1.5em;
+}
+
+hr {
+  width: 85%;
+  border-bottom: 3px double #386641;
+  border-top: none;
+  }
+
+.divider {
+  align-self: flex-start;
+  height: auto;
+  flex: 0 0 100%;
+  display: block;
+  width: 100%;
+  max-width: 80%;
+  margin: 0 auto 1rem;
+}
+
+.media-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.media-list li {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 12px;
+  align-items: flex-start;
+}
+
+.media-list img {
+  width: 60px;
+  height: auto;
+  border: 2px solid #162719;
+}
+
+.media-text p {
+  margin: 4px 0 0 0;
+  font-size: 0.9em;
+}
+
+#ivypot {
+	position: absolute;
+	top: 0;
+	right: 0;
+}
+
+/*** scrollbar ***/
+/* width */
+::-webkit-scrollbar {
+  width: 15px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #386641;
+  border: 1px solid;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #A7C957;
+  border: 1px solid;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #CE7879;
+}
+
+::-webkit-scrollbar-button {
+  background: #A7C957;
+}
+
+::-webkit-scrollbar-button:hover {
+  background: #CE7879;
+}
+
+::-webkit-scrollbar-button:single-button {
+  border: 1px solid;
+  height: 12px;
+}
+
+/* Up */
+::-webkit-scrollbar-button:single-button:vertical:decrement {
+  border-width: 0 8px 8px 8px;
+  border-color: transparent transparent #555555 transparent;
+}
+
+::-webkit-scrollbar-button:single-button:vertical:decrement:hover {
+  border-color: transparent transparent #777777 transparent;
+}
+/* Down */
+::-webkit-scrollbar-button:single-button:vertical:increment {
+  border-width: 8px 8px 0 8px;
+  border-color: #555555 transparent transparent transparent;
+}
+
+::-webkit-scrollbar-button:vertical:single-button:increment:hover {
+  border-color: #777777 transparent transparent transparent;
+}
+
+/*mobile view*/
+
+@media only screen and (max-width: 600px) {
+
+  .wrapper {
+    flex-wrap: wrap;
+  }
+
+  .sidebar {
+    flex: 1 1 100%;
+  }
+
+  .subbox {
+    width: 100%;
+  }
+
+  .hide {
+    display: none;
+  }
+
+}
+	</style>
+
+  </head>
+  <body>
+
+	<img src="https://file.garden/ZA_UJlkUN2HXHENQ/images/ivy.png" id="ivypot" class="hide">
+
+	<div class="header">
+        <h1>Come on in to game store!</h1>
+      </div>
+
+	<div class="wrapper">
+
+  <div class="sidebar">
+	<div class="imgbox">
+	<img src="https://file.garden/ZA_UJlkUN2HXHENQ/images/clovercoffee.png">
+	</div>
+
+	<div class="menu">
+    <h2>menu</h2>
+	  <b><a href="/">Dorbi's Cafe</a><br>
+      <a href="/books/index.html">Books</a><br>
+      <a href="">TV shows</a><br>
+      <a href="">Movies</a><br>
+      <a href="">Selfhosting</a><br></b>
+    </div>
+
+	</div>
+
+
+	<div class="main">
+    <div class="box">
+    <h3>Settle in, and let's talk about games for a moment!</h3>
+    <hr>
+		
+    <p>Video games have always been a big part of my life. Ocarina of Time is one of the first video games I ever beat. When World of Warcraft came out, my middle brother and I dove in head first with everything we had. We haven't placed in a few years, but we each have thousands of hours in WoW, and it will always have a special place in my heart.</p>
+    <p>So this is a page that I would like to sit down, and talk about the games that helped shape me, and continue to do so.</p>
+
+	<hr>
+		
+	</div>
+
+	<img src="https://file.garden/ZA_UJlkUN2HXHENQ/images/plantpotdivider.gif" class="divider">
+
+    <div class="subbox">
+    <h3>All Time Favorites</h3>
+		
+		<ul class="media-list">
+			<li>
+				<img src="" alt="">
+				<div class="media-text">
+					<strong>The Legend of Zelda: The Wind Waker</strong>
+					<p>Wind Waker was the first Zelda game that I really felt like was <i>mine</i>. I adored the game, and found it breathtaking. The soundtrack struck me right from the beginning; Outset Island is a beautiful track that I still listen to all the time. Sailing the seas, discovering islands, ghost ships, finding treasure, and reassembling the trifoce was a true adventure that I felt like <i>I</i> embarked on as a child.</p>
+				</div>
+			</li>
+
+			<li>
+				<img src="/images/BG3.jpg" alt="BG3 Covver">
+				<div class="media-text">
+					<strong>Baldur's Gate 3</strong>
+					<p>Baldur's Gate 3 came out at the perfect time for me. I first played D&D with some buddies in the Marines, starting with 3.5E. Over time, I became a big fan of Critical Role, and found that BG3 was the perfect video game analog of the 5E system. The characters were vibrant, the voice acting incredible, and the story was so branching and variable that I was absorbed in this game for weeks.</p>
+				</div>
+
+      <li>
+        <img src="/images/COE33.jpg" alt="Expedition 33 Cover">
+        <div class="media-text">
+            <strong>Clair Obscur: Expedition 33</strong>
+            <p>Expedition 33 truly took me by surprise. I had seen trailers for it, but it wasn't quite on my radar as a must-play game. I was convinced to play it by a friend in The Pouch, and was taken aback by the beauty and the character depth, and especially the music. The music is perhaps the best video game soundtrack that I have ever heard, and it has absolutely become a daily listen to me. But the plight of the characters in Expedition 33 are really what brought me into the game. Discovering the futility of the attempts of prior expeditions, yet seeing groups assemble each year in the hope that maybe this time, this expedition, would succeed, was heart wrenching. Seeing people come together when all hope is lost, when everyone knows they will fail, yet pressing on because they know they <i>must</i> is a beautiful, yet tragic thing.</p>
+        </div>
+      </li>
+		
+      </div>
+
+    <div class="subbox">
+    <h3>Currently Playing</h3>
+		<ul class="media-list">
+			<li>
+				<img src="/images/Megabonk.jpg" alt="Megabonk Cover">
+				<div class="media-text">
+					<strong>Megabonk</strong>
+					<p>Megabonk is the perfect thing to play as I hop into bed after a long day. I can grab my Steam Deck, settle in, and play as a skeleton riding around on a skateboard, fighting hoards of baddies. Sometimes, I don't need emotional depth. Sometimes I just need skeledudes fighting baddies.</p>
+				</div>
+			</li>
+
+      <li>
+        <img src="/images/Overwatch.jpg" alt="Overwatch Cover">
+        <div class="media-text">
+          <strong>Overwatch (2?)</strong>
+          <p>Overwatch is something that I have played with my wife, my brother, and my sister-in-law since the game came out in May of 2016. It was one of the first games I played after I got out of the Marine Corps. We used to play every single night, a few rounds a night. It's a game that will always have a special place in my heart, despite the fact that the game has changed so much. We still hop on and play once in a while, and it's still fun today. Though I will say, Blizzard needs to bring back the 2nd tank spot.</p>
+        </div>
+      </li>
+    </div>
+
+	</div>
+
+    </div>
+
+	<div class="footer">
+    <p>Thanks for stopping by! Take care, and don't forget your towel!</p></div>

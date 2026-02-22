@@ -154,6 +154,30 @@ hr {
   margin: 0 auto 1rem;
 }
 
+.media-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.media-list li {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 12px;
+  align-items: flex-start;
+}
+
+.media-list img {
+  width: 60px;
+  height: auto;
+  border: 2px solid #162719;
+}
+
+.media-text p {
+  margin: 4px 0 0 0;
+  font-size: 0.9em;
+}
+
 #ivypot {
 	position: absolute;
 	top: 0;
@@ -281,15 +305,22 @@ hr {
 
     <div class="subbox">
     <h3>All Time Favorites</h3>
-		<ul>
+		
+		<ul class="media-list">
 			<li>
-				<strong>Yumi &amp; the Nightmare Painter, by Brandon Sanderson</strong>
-				<p>Yumi is a beautiful novel, and was a breath of fresh air from my favorite author, Brandon Sanderson.</p>
+				<img src="/images/Yumi.jpg" alt="Yumi Cover">
+				<div class="media-text">
+					<strong>Yumi &amp; the Nightmare Painter, by Brandon Sanderson</strong>
+					<p>Yumi is a beautiful novel, and was a breath of fresh air from my favorite author, Brandon Sanderson.</p>
+				</div>
 			</li>
 
 			<li>
-				<strong>The Hobbit, by J.R.R. Tolkien</strong>
-				<p>The Hobbit is a book that I re-read annually. For some reason, it has become a holiday book for me; something I return to when the weather gets cold, and I find myself wanting to sit down with an old friend, and a cup of hot cocoa.</p>
+				<img src="/images/The Hobbit.jpg" alt="The Hobbit Cover">
+				<div class="media-text">
+					<strong>The Hobbit, by J.R.R. Tolkien</strong>
+					<p>The Hobbit is a book that I re-read annually. For some reason, it has become a holiday book for me; something I return to when the weather gets cold, and I find myself wanting to sit down with an old friend, and a cup of hot cocoa.</p>
+				</div>
 
 	  <!--
 	  <p><b>4/29/2025</b><br>

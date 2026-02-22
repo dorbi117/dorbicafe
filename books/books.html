@@ -1,0 +1,312 @@
+<!DOCTYPE html><html><head>
+    <meta name="viewport" charset="UTF-8" content="width=device-width">
+    <title>The Bookshelf</title>
+	<link rel="icon" type="image/png" href="/favicon2.png">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Amatic+SC|Karla">
+
+	<style>
+body {
+  background-color: #CE7879;
+  font-family: "Karla", Arial, sans-serif;
+  color: #162719;
+  background: url("https://file.garden/ZA_UJlkUN2HXHENQ/images/backgrounds/brickbg.jpg");
+  background-attachment: fixed;
+  }
+
+.wrapper {
+	display: flex;
+	flex-wrap: wrap;
+	width: 90%;
+	margin: auto;
+	height: 110vh;
+}
+
+.header {
+	width: 80%;
+	margin: auto;
+	text-align: center;
+	font-family: "Amatic SC", Papyrus, fantasy;
+	color: #F2E8CF;
+	background: url("https://file.garden/ZA_UJlkUN2HXHENQ/images/backgrounds/woodbg.jpg");
+	border: 2px solid #162719;
+}
+
+.sidebar {
+	height: 80vh;
+	flex: 1;
+	margin: 1%;
+}
+
+.imgbox {
+	border: 3px double #162719;
+	background: #7AAC5D;
+	margin-bottom: 3%;
+}
+
+.imgbox img {
+  max-width: 100%;
+  height: auto;
+  }
+
+.menu {
+	height: 90%;
+	text-align: center;
+	line-height: 200%;
+	color: #F2E8CF;
+	background-color: #162719;
+	border: 10px solid;
+	border-image: url('https://file.garden/ZA_UJlkUN2HXHENQ/images/backgrounds/woodbg.jpg') 20% round;
+	outline: 2px solid #162719;
+}
+
+.main {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 2% 2%;
+	flex: 5;
+}
+
+.box {
+	height: 45vh;
+	overflow: auto;
+	padding: 2%;
+	background: #F2E8CF;
+	border: 3px double #162719;
+	margin: 1%;
+}
+
+.subbox {
+	width: 42%;
+	height: 30vh;
+	overflow: auto;
+	padding: 2%;
+	border: 3px double #162719;
+	background: #7AAC5D;
+	margin: 1%;
+}
+
+.subbox a:link, .subbox a:visited {
+	color: #F2E8CF;
+	text-decoration: none;
+}
+
+.subbox a:hover, .subbox a:active {
+	color: #CE7879;
+	text-decoration: underline;
+	}
+
+.footer {
+	width: 65%;
+	margin-left: 25%;
+	text-align: center;
+	font-family: "Amatic SC", Papyrus, fantasy;
+	color: #F2E8CF;
+	background: url("https://file.garden/ZA_UJlkUN2HXHENQ/images/backgrounds/woodbg.jpg");
+	border: 2px solid #162719;
+}
+
+a:link, a:visited {
+	color: #7AAC5D;
+	text-decoration: none;
+	}
+
+a:hover, a:active {
+	color: #CE7879;
+	text-decoration: underline;
+	}
+
+h1, h2, h3, h4 {
+	font-family: "Amatic SC", Papyrus, fantasy;
+	margin: 0.25em;
+	padding: 0;
+	text-align: center;
+}
+
+h1 {
+	font-size: 3em;
+}
+
+h2 {
+	font-size: 2.5em;
+}
+
+h3 {
+	font-size: 2em;
+}
+
+h4 {
+	font-size: 1.5em;
+}
+
+hr {
+  width: 85%;
+  border-bottom: 3px double #386641;
+  border-top: none;
+  }
+
+.divider {
+  flex: 0 0 100%;
+  display: block;
+  width: 100%;
+  max-width: 80%;
+  margin: 0 auto 1rem;
+}
+
+#ivypot {
+	position: absolute;
+	top: 0;
+	right: 0;
+}
+
+/*** scrollbar ***/
+/* width */
+::-webkit-scrollbar {
+  width: 15px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #386641;
+  border: 1px solid;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #A7C957;
+  border: 1px solid;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #CE7879;
+}
+
+::-webkit-scrollbar-button {
+  background: #A7C957;
+}
+
+::-webkit-scrollbar-button:hover {
+  background: #CE7879;
+}
+
+::-webkit-scrollbar-button:single-button {
+  border: 1px solid;
+  height: 12px;
+}
+
+/* Up */
+::-webkit-scrollbar-button:single-button:vertical:decrement {
+  border-width: 0 8px 8px 8px;
+  border-color: transparent transparent #555555 transparent;
+}
+
+::-webkit-scrollbar-button:single-button:vertical:decrement:hover {
+  border-color: transparent transparent #777777 transparent;
+}
+/* Down */
+::-webkit-scrollbar-button:single-button:vertical:increment {
+  border-width: 8px 8px 0 8px;
+  border-color: #555555 transparent transparent transparent;
+}
+
+::-webkit-scrollbar-button:vertical:single-button:increment:hover {
+  border-color: #777777 transparent transparent transparent;
+}
+
+/*mobile view*/
+
+@media only screen and (max-width: 600px) {
+
+.subbox {
+	width: 100%;
+}
+
+.hide {
+	  display: none;
+  }
+
+}
+	</style>
+
+  </head>
+  <body>
+
+	<img src="https://file.garden/ZA_UJlkUN2HXHENQ/images/ivy.png" id="ivypot" class="hide">
+
+	<div class="header">
+        <h1>Welcome to Dorbi's Bookshelf</h1>
+        <h2>Feel free to take a look around</h2>
+      </div>
+
+	<div class="wrapper">
+
+  <div class="sidebar">
+	<div class="imgbox">
+	<img src="https://file.garden/ZA_UJlkUN2HXHENQ/images/clovercoffee.png">
+	</div>
+
+	<div class="menu">
+    <h2>menu</h2>
+	  <b><a href="">Dorbi's Cafe</a><br>
+      <a href="">Games</a><br>
+      <a href="">TV shows</a><br>
+      <a href="">Movies</a><br>
+      <a href="">Selfhosting</a><br></b>
+    </div>
+
+	</div>
+
+
+	<div class="main">
+    <div class="box">
+    <h3>Looking for a good book? I have a few recommendations!</h3>
+    <hr>
+		
+    <p>This is a place where I'll be posting about books, whether they're the books I'm currently reading, or the books that have made a lasting impact on me. Feel free to sit down with a cup of coffee from the cafe. This one is on the house.</p>
+
+	<hr>
+		
+	</div>
+
+	<img src="https://file.garden/ZA_UJlkUN2HXHENQ/images/plantpotdivider.gif" class="divider">
+
+    <div class="subbox">
+    <h3>All Time Favorites</h3>
+		<ul>
+			<li>
+				<strong>Yumi &amp; the Nightmare Painter, by Brandon Sanderson</strong>
+				<p>Yumi is a beautiful novel, and was a breath of fresh air from my favorite author, Brandon Sanderson.</p>
+			</li>
+
+			<li>
+				<strong>The Hobbit, by J.R.R. Tolkien</strong>
+				<p>The Hobbit is a book that I re-read annually. For some reason, it has become a holiday book for me; something I return to when the weather gets cold, and I find myself wanting to sit down with an old friend, and a cup of hot cocoa.</p>
+
+	  <!--
+	  <p><b>4/29/2025</b><br>
+      or maybe a mini blog post</p>
+
+	  <p><b>4/27/2025</b><br>
+      or maybe some art?</p>
+
+	  <p><b>4/23/2025</b><br>
+      idk I'm not your parent, do what you want forever</p>
+  	  -->
+		
+      </div>
+
+    <div class="subbox">
+    <h3>Currently Reading</h3>
+		<ul>
+			<li>
+				<strong>Dungeon Crawler Carl [series], by Matt Dinniman</strong>
+				<p>Currently, I'm on book 3 of the DCC series. It's been really fun, and has served as almost a palette cleanser of sorts. I can sit down with Carl &amp; Donut, turn off my brain, and enjoy the shenanigans they always get up to.</p>
+			</li>
+    </div>
+
+	</div>
+
+    </div>
+
+	<div class="footer">
+    <p>Thanks for stopping by! Take care, and don't forget your towel!</p></div>

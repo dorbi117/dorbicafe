@@ -8,47 +8,252 @@
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
   <style>
-    body { font-family: Karla, Arial, sans-serif; background: #F2E8CF; color: #162719; margin: 0; padding: 20px; }
-    h1,h2 { font-family: "Amatic SC", Papyrus, fantasy; text-align: center; margin: 10px 0; }
-    .wrap { max-width: 900px; margin: 0 auto; }
-    .card { background: #fff; border: 3px double #162719; padding: 16px; margin: 14px 0; }
-    label { display:block; margin: 10px 0 4px; }
-    input[type="text"] { width: 100%; padding: 10px; border: 1px solid #162719; box-sizing: border-box; }
-    button { padding: 10px 14px; border: 2px solid #162719; background: #7AAC5D; color: #F2E8CF; cursor: pointer; }
-    button:hover { background: #162719; }
-    .meta { font-size: 0.9em; opacity: 0.85; }
+    body {
+      background-color: #CE7879;
+      font-family: "Karla", Arial, sans-serif;
+      color: #162719;
+      background: url("https://file.garden/ZA_UJlkUN2HXHENQ/images/backgrounds/brickbg.jpg");
+      background-attachment: fixed;
+      margin: 0;
+      padding: 20px;
+    }
+
+    .wrapper {
+      display: flex;
+      flex-wrap: nowrap;
+      width: 90%;
+      margin: auto;
+      align-items: flex-start;
+    }
+
+    .header {
+      width: 80%;
+      margin: auto;
+      text-align: center;
+      font-family: "Amatic SC", Papyrus, fantasy;
+      color: #F2E8CF;
+      background: url("https://file.garden/ZA_UJlkUN2HXHENQ/images/backgrounds/woodbg.jpg");
+      border: 2px solid #162719;
+    }
+
+    .sidebar {
+      flex: 0 0 260px;
+      margin: 1%;
+    }
+
+    .imgbox {
+      border: 3px double #162719;
+      background: #7AAC5D;
+      margin-bottom: 3%;
+    }
+
+    .imgbox img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .menu {
+      height: auto;
+      text-align: center;
+      line-height: 200%;
+      color: #F2E8CF;
+      background-color: #162719;
+      border: 10px solid;
+      border-image: url('https://file.garden/ZA_UJlkUN2HXHENQ/images/backgrounds/woodbg.jpg') 20% round;
+      outline: 2px solid #162719;
+    }
+
+    .main {
+      flex: 1 1 auto;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2% 2%;
+      align-content: flex-start;
+      align-items: flex-start;
+      margin: 1%;
+    }
+
+    .box {
+      width: 100%;
+      height: auto;
+      overflow: auto;
+      padding: 2%;
+      background: #F2E8CF;
+      border: 3px double #162719;
+      margin: 1%;
+      box-sizing: border-box;
+    }
+
+    .footer {
+      width: 65%;
+      margin-left: 25%;
+      text-align: center;
+      font-family: "Amatic SC", Papyrus, fantasy;
+      color: #FFFFFF;
+      background: url("https://file.garden/ZA_UJlkUN2HXHENQ/images/backgrounds/woodbg.jpg");
+      border: 2px solid #162719;
+      margin-top: 20px;
+    }
+
+    .footer p {
+      margin: 0;
+      padding: 12px 10px;
+      text-shadow: 0 3px 4px rgba(0,0,0,0.85);
+    }
+
+    a:link, a:visited {
+      color: #7AAC5D;
+      text-decoration: none;
+    }
+
+    a:hover, a:active {
+      color: #CE7879;
+      text-decoration: underline;
+    }
+
+    h1, h2, h3, h4 {
+      font-family: "Amatic SC", Papyrus, fantasy;
+      margin: 0.25em;
+      padding: 0;
+      text-align: center;
+    }
+
+    h1 { font-size: 3em; }
+    h2 { font-size: 2.5em; }
+    h3 { font-size: 2em; }
+    h4 { font-size: 1.5em; }
+
+    hr {
+      width: 85%;
+      border-bottom: 3px double #386641;
+      border-top: none;
+    }
+
+    #ivypot {
+      position: absolute;
+      top: 0;
+      right: 0;
+    }
+
+    .meta { font-size: 0.95em; opacity: 0.9; }
     .err { color: #8b0000; }
-    a { color: #386641; text-decoration: none; }
-    a:hover { text-decoration: underline; }
     .row { display:flex; gap: 10px; align-items:center; justify-content: space-between; }
+
+    label { display:block; margin: 10px 0 4px; }
+    input[type="text"] {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #162719;
+      box-sizing: border-box;
+      background: #fff;
+      color: #162719;
+    }
+
+    button {
+      padding: 10px 14px;
+      border: 2px solid #162719;
+      background: #7AAC5D;
+      color: #F2E8CF;
+      cursor: pointer;
+      margin-top: 8px;
+    }
+    button:hover { background: #162719; }
+
+    /*** scrollbar ***/
+    ::-webkit-scrollbar { width: 15px; }
+    ::-webkit-scrollbar-track { background: #386641; border: 1px solid; }
+    ::-webkit-scrollbar-thumb { background: #A7C957; border: 1px solid; }
+    ::-webkit-scrollbar-thumb:hover { background: #CE7879; }
+    ::-webkit-scrollbar-button { background: #A7C957; }
+    ::-webkit-scrollbar-button:hover { background: #CE7879; }
+    ::-webkit-scrollbar-button:single-button { border: 1px solid; height: 12px; }
+    ::-webkit-scrollbar-button:single-button:vertical:decrement {
+      border-width: 0 8px 8px 8px;
+      border-color: transparent transparent #555555 transparent;
+    }
+    ::-webkit-scrollbar-button:single-button:vertical:decrement:hover {
+      border-color: transparent transparent #777777 transparent;
+    }
+    ::-webkit-scrollbar-button:single-button:vertical:increment {
+      border-width: 8px 8px 0 8px;
+      border-color: #555555 transparent transparent transparent;
+    }
+    ::-webkit-scrollbar-button:vertical:single-button:increment:hover {
+      border-color: #777777 transparent transparent transparent;
+    }
+
+    /* mobile */
+    @media only screen and (max-width: 600px) {
+      .wrapper { flex-wrap: wrap; }
+      .sidebar { flex: 1 1 100%; }
+      .main { flex: 1 1 100%; }
+      .hide { display: none; }
+      .footer { width: 90%; margin: 20px auto 0; }
+    }
   </style>
 </head>
+
 <body>
-  <div class="wrap">
-    <h1>Visitor Log</h1>
-    <p style="text-align:center;"><a href="/">← Back to Dorbi's Cafe</a></p>
+  <img src="https://file.garden/ZA_UJlkUN2HXHENQ/images/ivy.png" id="ivypot" class="hide" alt="ivy">
 
-    <div class="card">
-      <h2>Sign the log</h2>
-      <form id="form">
-        <label for="name">Name</label>
-        <input id="name" name="name" type="text" maxlength="60" required autocomplete="off" />
-        <button type="submit">Sign</button>
-        <p id="status" class="meta"></p>
-      </form>
-      <p class="meta">Your name will appear immediately with a timestamp.</p>
+  <div class="header">
+    <h1>thank's for stopping by dorbi's cafe</h1>
+  </div>
+
+  <div class="wrapper">
+    <div class="sidebar">
+      <div class="imgbox">
+        <img src="https://file.garden/ZA_UJlkUN2HXHENQ/images/clovercoffee.png" alt="coffee">
+      </div>
+
+      <div class="menu">
+        <h2>menu</h2>
+        <b>
+          <a href="/">Dorbi's Cafe</a><br>
+          <a href="/books/index.html">Books</a><br>
+          <a href="/games/index.html">Games</a><br>
+          <a href="/tv/index.html">TV shows</a><br>
+          <a href="">Movies</a><br>
+          <a href="">Selfhosting</a><br>
+          <a href="/visitor-log/index.html">Visitor Log</a><br>
+        </b>
+      </div>
     </div>
 
-    <div class="card">
-      <h2>Recent visitors</h2>
-      <div id="list" class="meta">Loading…</div>
+    <div class="main">
+      <div class="box">
+        <h1>Visitor Log</h1>
+        <p style="text-align:center;"><a href="/">← Back to Dorbi's Cafe</a></p>
+
+        <h2>Sign the log!</h2>
+        <h3>We'll have a fresh cup of coffee for you when you come back next.</h3>
+
+        <form id="form">
+          <label for="name">Name</label>
+          <input id="name" name="name" type="text" maxlength="60" required autocomplete="off" />
+          <button type="submit">Sign</button>
+          <p id="status" class="meta"></p>
+        </form>
+
+        <p class="meta">Your name will appear immediately with a timestamp.</p>
+
+        <hr>
+
+        <h2>Recent visitors</h2>
+        <div id="list" class="meta">Loading…</div>
+      </div>
     </div>
+  </div>
+
+  <div class="footer">
+    <p>Thanks for stopping by! Take care, and don't forget your towel!</p>
   </div>
 
   <script>
     // Paste from Supabase: Project Settings → API
     const SUPABASE_URL = "https://ywyrwwbrxurfownnawno.supabase.co";
-    const SUPABASE_ANON_KEY = "sb_publishable_rkkXqq4U8zhlYO4q-z9U_A_I2d0mKGh";
+    const SUPABASE_ANON_KEY = "PASTE_YOUR_ANON_KEY_HERE";
 
     const sb = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
 

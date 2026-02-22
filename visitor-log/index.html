@@ -1,35 +1,119 @@
 <!doctype html>
-<html>
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Visitor Log</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width" />
+  <title>Visitor Log • Dorbi's Cafe</title>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Amatic+SC|Karla">
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
   <style>
-    body { font-family: Karla, Arial, sans-serif; background: #F2E8CF; color: #162719; padding: 20px; }
-    h1,h2 { font-family: "Amatic SC", Papyrus, fantasy; text-align: center; }
-    .box { background: white; border: 3px double #162719; padding: 20px; max-width: 800px; margin: 20px auto; }
-    input { width: 100%; padding: 10px; margin-bottom: 10px; }
-    button { padding: 10px; background: #7AAC5D; color: #F2E8CF; border: 2px solid #162719; cursor: pointer; }
+    body { font-family: Karla, Arial, sans-serif; background: #F2E8CF; color: #162719; margin: 0; padding: 20px; }
+    h1,h2 { font-family: "Amatic SC", Papyrus, fantasy; text-align: center; margin: 10px 0; }
+    .wrap { max-width: 900px; margin: 0 auto; }
+    .card { background: #fff; border: 3px double #162719; padding: 16px; margin: 14px 0; }
+    label { display:block; margin: 10px 0 4px; }
+    input[type="text"] { width: 100%; padding: 10px; border: 1px solid #162719; box-sizing: border-box; }
+    button { padding: 10px 14px; border: 2px solid #162719; background: #7AAC5D; color: #F2E8CF; cursor: pointer; }
     button:hover { background: #162719; }
+    .meta { font-size: 0.9em; opacity: 0.85; }
+    .err { color: #8b0000; }
+    a { color: #386641; text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    .row { display:flex; gap: 10px; align-items:center; justify-content: space-between; }
   </style>
 </head>
 <body>
+  <div class="wrap">
+    <h1>Visitor Log</h1>
+    <p style="text-align:center;"><a href="/">← Back to Dorbi's Cafe</a></p>
 
-<h1>Visitor Log</h1>
+    <div class="card">
+      <h2>Sign the log</h2>
+      <form id="form">
+        <label for="name">Name</label>
+        <input id="name" name="name" type="text" maxlength="60" required autocomplete="off" />
+        <button type="submit">Sign</button>
+        <p id="status" class="meta"></p>
+      </form>
+      <p class="meta">Your name will appear immediately with a timestamp.</p>
+    </div>
 
-<div class="box">
-  <h2>Sign the Log</h2>
-  <p>Thanks for stopping by! Let me know who was here!</p>
+    <div class="card">
+      <h2>Recent visitors</h2>
+      <div id="list" class="meta">Loading…</div>
+    </div>
+  </div>
 
-  <form action="https://formspree.io/f/mlgworew" method="POST">
-    <input type="text" name="name" placeholder="Your name" maxlength="60" required>
-    <button type="submit">Sign</button>
-  </form>
+  <script>
+    // Paste from Supabase: Project Settings → API
+    const SUPABASE_URL = "https://ywyrwwbrxurfownnawno.supabase.co";
+    const SUPABASE_ANON_KEY = "sb_publishable_rkkXqq4U8zhlYO4q-z9U_A_I2d0mKGh";
 
-  <p style="text-align:center;">
-    <a href="/">← Back to Dorbi's Cafe</a>
-  </p>
-</div>
+    const sb = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
 
+    function escapeHtml(s) {
+      return (s ?? "").replace(/[&<>"']/g, c => ({
+        "&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"
+      }[c]));
+    }
+
+    async function load() {
+      const list = document.getElementById("list");
+      const { data, error } = await sb
+        .from("visitor_log")
+        .select("created_at,name")
+        .order("created_at", { ascending: false })
+        .limit(100);
+
+      if (error) {
+        list.innerHTML = `<p class="err">Could not load visitor log.</p>`;
+        return;
+      }
+      if (!data || data.length === 0) {
+        list.innerHTML = `<p class="meta">No signatures yet.</p>`;
+        return;
+      }
+
+      list.innerHTML = data.map(r => {
+        const when = new Date(r.created_at).toLocaleString();
+        const who = escapeHtml((r.name || "").trim());
+        return `
+          <div style="border-top:1px solid #ddd; padding-top:10px; margin-top:10px;">
+            <div class="row">
+              <div><strong>${who}</strong></div>
+              <div class="meta">${escapeHtml(when)}</div>
+            </div>
+          </div>
+        `;
+      }).join("");
+    }
+
+    document.getElementById("form").addEventListener("submit", async (e) => {
+      e.preventDefault();
+      const status = document.getElementById("status");
+      status.textContent = "Signing…";
+
+      const nameEl = document.getElementById("name");
+      const name = nameEl.value.trim().slice(0, 60);
+
+      if (!name) {
+        status.innerHTML = `<span class="err">Name is required.</span>`;
+        return;
+      }
+
+      const { error } = await sb.from("visitor_log").insert([{ name }]);
+      if (error) {
+        status.innerHTML = `<span class="err">Could not sign right now.</span>`;
+        return;
+      }
+
+      nameEl.value = "";
+      status.textContent = "Signed!";
+      await load();
+    });
+
+    load();
+  </script>
 </body>
 </html>

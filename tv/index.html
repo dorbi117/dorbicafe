@@ -1,0 +1,358 @@
+
+<!DOCTYPE html><html><head>
+    <meta name="viewport" charset="UTF-8" content="width=device-width">
+    <title>Tune in to TV</title>
+	<link rel="icon" type="image/png" href="/favicon2.png">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Amatic+SC|Karla">
+
+	<style>
+body {
+  background-color: #CE7879;
+  font-family: "Karla", Arial, sans-serif;
+  color: #162719;
+  background: url("https://file.garden/ZA_UJlkUN2HXHENQ/images/backgrounds/brickbg.jpg");
+  background-attachment: fixed;
+  }
+
+.wrapper {
+  display: flex;
+  flex-wrap: nowrap;    /* keep sidebar + main on one row */
+  width: 90%;
+  margin: auto;
+}
+
+.header {
+	width: 80%;
+	margin: auto;
+	text-align: center;
+	font-family: "Amatic SC", Papyrus, fantasy;
+	color: #F2E8CF;
+	background: url("https://file.garden/ZA_UJlkUN2HXHENQ/images/backgrounds/woodbg.jpg");
+	border: 2px solid #162719;
+}
+
+.sidebar {
+  flex: 0 0 260px;      /* fixed sidebar width (adjust as desired) */
+  margin: 1%;
+}
+
+.imgbox {
+	border: 3px double #162719;
+	background: #7AAC5D;
+	margin-bottom: 3%;
+}
+
+.imgbox img {
+  max-width: 100%;
+  height: auto;
+  }
+
+.menu {
+	height: auto;
+	text-align: center;
+	line-height: 200%;
+	color: #F2E8CF;
+	background-color: #162719;
+	border: 10px solid;
+	border-image: url('https://file.garden/ZA_UJlkUN2HXHENQ/images/backgrounds/woodbg.jpg') 20% round;
+	outline: 2px solid #162719;
+}
+
+.main {
+  flex: 1 1 auto;       /* main takes remaining width */
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2% 2%;
+  align-content: flex-start; /* avoids big vertical gaps between rows */
+  align-items: flex-start;
+}
+
+.box {
+	height: auto;
+	overflow: auto;
+	padding: 2%;
+	background: #F2E8CF;
+	border: 3px double #162719;
+	margin: 1%;
+}
+
+.subbox {
+	width: 42%;
+	height: auto;
+	overflow: auto;
+	padding: 2%;
+	border: 3px double #162719;
+	background: #7AAC5D;
+	margin: 1%;
+}
+
+.subbox a:link, .subbox a:visited {
+	color: #F2E8CF;
+	text-decoration: none;
+}
+
+.subbox a:hover, .subbox a:active {
+	color: #CE7879;
+	text-decoration: underline;
+	}
+
+.footer {
+	width: 65%;
+	margin-left: 25%;
+	text-align: center;
+	font-family: "Amatic SC", Papyrus, fantasy;
+	color: #F2E8CF;
+	background: url("https://file.garden/ZA_UJlkUN2HXHENQ/images/backgrounds/woodbg.jpg");
+	border: 2px solid #162719;
+}
+
+a:link, a:visited {
+	color: #7AAC5D;
+	text-decoration: none;
+	}
+
+a:hover, a:active {
+	color: #CE7879;
+	text-decoration: underline;
+	}
+
+h1, h2, h3, h4 {
+	font-family: "Amatic SC", Papyrus, fantasy;
+	margin: 0.25em;
+	padding: 0;
+	text-align: center;
+}
+
+h1 {
+	font-size: 3em;
+}
+
+h2 {
+	font-size: 2.5em;
+}
+
+h3 {
+	font-size: 2em;
+}
+
+h4 {
+	font-size: 1.5em;
+}
+
+hr {
+  width: 85%;
+  border-bottom: 3px double #386641;
+  border-top: none;
+  }
+
+.divider {
+  align-self: flex-start;
+  height: auto;
+  flex: 0 0 100%;
+  display: block;
+  width: 100%;
+  max-width: 80%;
+  margin: 0 auto 1rem;
+}
+
+.media-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.media-list li {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 12px;
+  align-items: flex-start;
+}
+
+.media-list img {
+  width: 60px;
+  height: auto;
+  border: 2px solid #162719;
+}
+
+.media-text p {
+  margin: 4px 0 0 0;
+  font-size: 0.9em;
+}
+
+#ivypot {
+	position: absolute;
+	top: 0;
+	right: 0;
+}
+
+/*** scrollbar ***/
+/* width */
+::-webkit-scrollbar {
+  width: 15px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #386641;
+  border: 1px solid;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #A7C957;
+  border: 1px solid;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #CE7879;
+}
+
+::-webkit-scrollbar-button {
+  background: #A7C957;
+}
+
+::-webkit-scrollbar-button:hover {
+  background: #CE7879;
+}
+
+::-webkit-scrollbar-button:single-button {
+  border: 1px solid;
+  height: 12px;
+}
+
+/* Up */
+::-webkit-scrollbar-button:single-button:vertical:decrement {
+  border-width: 0 8px 8px 8px;
+  border-color: transparent transparent #555555 transparent;
+}
+
+::-webkit-scrollbar-button:single-button:vertical:decrement:hover {
+  border-color: transparent transparent #777777 transparent;
+}
+/* Down */
+::-webkit-scrollbar-button:single-button:vertical:increment {
+  border-width: 8px 8px 0 8px;
+  border-color: #555555 transparent transparent transparent;
+}
+
+::-webkit-scrollbar-button:vertical:single-button:increment:hover {
+  border-color: #777777 transparent transparent transparent;
+}
+
+/*mobile view*/
+
+@media only screen and (max-width: 600px) {
+
+  .wrapper {
+    flex-wrap: wrap;
+  }
+
+  .sidebar {
+    flex: 1 1 100%;
+  }
+
+  .subbox {
+    width: 100%;
+  }
+
+  .hide {
+    display: none;
+  }
+
+}
+	</style>
+
+  </head>
+  <body>
+
+	<img src="https://file.garden/ZA_UJlkUN2HXHENQ/images/ivy.png" id="ivypot" class="hide">
+
+	<div class="header">
+        <h1>What's on the TV tonight?</h1>
+      </div>
+
+	<div class="wrapper">
+
+  <div class="sidebar">
+	<div class="imgbox">
+	<img src="https://file.garden/ZA_UJlkUN2HXHENQ/images/clovercoffee.png">
+	</div>
+
+	<div class="menu">
+    <h2>menu</h2>
+	  <b><a href="/">Dorbi's Cafe</a><br>
+      <a href="/books/index.html">Games</a><br>
+      <a href="/games/index.html">Games</a><br>
+      <a href="">Movies</a><br>
+      <a href="">Selfhosting</a><br></b>
+    </div>
+
+	</div>
+
+
+	<div class="main">
+    <div class="box">
+    <h3>Anything good on TV? Let's find out!</h3>
+    <hr>
+		
+    <p>I don't watch TV lots; wifey and I usually pick a couple of shows that we dive into, but otherwise we prefer to read or play games together. But sometimes, a show really hits in a way that only TV can.</p>
+
+    <p>So this is where we'll talk about the TV shows that we've been watching, or those that we're anticipating most. Lately for me, that's been mostly anime; let's talk about it.</p>
+
+	<hr>
+		
+	</div>
+
+	<img src="https://file.garden/ZA_UJlkUN2HXHENQ/images/plantpotdivider.gif" class="divider">
+
+    <div class="subbox">
+    <h3>All Time Favorites</h3>
+		
+		<ul class="media-list">
+			<li>
+				<img src="/images/ATLA.jpg" alt="ATLA Cover">
+				<div class="media-text">
+					<strong>Avatar: The Last Airbender</strong>
+					<p>ATLA is one of those comfort shows that I can put on at any time and fall right back into it. It's a show that I put on when I'm anxious or stressed. I can often put it on when I'm having trouble sleeping. Aang &amp; the Gaang always bring me back to a happy place. Despite the hardships through the show, and it's sister show, <b>The Legend of Korra</b>, I find comfort in the friendship &amp; comaraderie between the characters. The struggles seem vast, but they always overcome them.</p>
+				</div>
+			</li>
+
+			<li>
+				<img src="/images/Arcane.jpg" alt="Arcane Cover">
+				<div class="media-text">
+					<strong>Arcane</strong>
+					<p>Arcane is one of those shows that has no right being is fantastic as it is. The animation is truly incredible. The source material is (in my opinion!) pretty lacking. I know the lore of <i>League</i> runs deep, but I don't think it's a hot take to say that the lore is an afterthought for LoL. Yet, clearly, it's enough for something like Arcane to sprout forth. Arcane is heartbreaking, because the first season is a train wreck that you can see coming from a mile ahead, but can do nothing to prevent. Seeing Powder break, mentally, was devastating. Seeing Vi say &amp; do things that the viewer can clearly see will further drive in the wedge dividing them is painful to watch. But I couldn't look away. It's a truly beautiful and moving show that I can't wait to see more of. The studio has proven themselves as a top-tier group in my eyes.</p>
+				</div>
+
+	  <!--
+	  <p><b>4/29/2025</b><br>
+      or maybe a mini blog post</p>
+
+	  <p><b>4/27/2025</b><br>
+      or maybe some art?</p>
+
+	  <p><b>4/23/2025</b><br>
+      idk I'm not your parent, do what you want forever</p>
+  	  -->
+		
+      </div>
+
+    <div class="subbox">
+    <h3>Currently Watching</h3>
+		<ul class="media-list">
+			<li>
+				<img src="/images/Frieren.jpg" alt="Freiren Cover">
+				<div class="media-text">
+					<strong>Frieren: Beyond Journey's End</strong>
+					<p>Frieren became an <b>instant</b> favorite for me. Similar to ATLA, Frieren is a show where I often find myself laughing &amp; crying, sometimes at the same time. Each episode is small, and is presented as a bite-size piece of a larger adventure, and there's a certain comfort in that. Frieren is an ancient, powerful magician. She's often aloof. But seeing her develop as a person, even with as much experience as she has under her belt, teaches us that we all have room to grow. It is obvious from the first episode that she regrets not taking the time to get to know her original adventuring party. Their lifespans are just a blip on the radar compared to her own. But seeing Himmel come and go, leaving Frieren behind, is a heartbreaking lesson that I took to heart; don't take for granted what you have in the moment. Take the time to tell those around you that you love them, for they will not always be there. And when they're gone, it's too late.</p>
+				</div>
+			</li>
+    </div>
+
+	</div>
+
+    </div>
+
+	<div class="footer">
+    <p>Thanks for stopping by! Take care, and don't forget your towel!</p></div>

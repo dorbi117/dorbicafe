@@ -1,0 +1,269 @@
+/* if you want to change the colors, do that here! changing these will change colors for the whole layout. 
+
+note that the divbackground color has some transparency for the see-through effect, so keep that in mind if you want to change colors!
+
+*/
+
+:root {
+    --fontcolor: #37465f;
+    --gradientdark: #6a77bd;
+    --gradientlight: #A8ACFF;
+    --divbackground: rgba(208, 218, 235, 0.7);
+    --paleborder: #d0daeb;
+    --sunshine: #f1edc8;
+}
+
+
+/* change the fonts here! */
+
+body {
+    font-family: Verdana, sans-serif;
+    font-size: 10pt;
+}
+
+h1,h2,h3,h4 {
+    font-family: "Prosto One", "Arial Black", Verdana, sans-serif;
+}
+
+
+/* vv here's the rest of the layout vv */
+
+
+
+* {
+    box-sizing: border-box;
+    scrollbar-color: var(--gradientdark) var(--gradientlight);
+}
+
+::selection {
+    background-color: var(--fontcolor);
+    color: var(--paleborder)
+}
+
+body {
+    background: var(--gradientlight);
+    background: url(https://i.imgur.com/BO2nRFq.png)
+        /* this is the lamppost background image. feel free to remove or change it! */
+        ,
+    linear-gradient(180deg, var(--gradientlight) 0%, var(--gradientdark) 100%);
+    background-attachment: fixed;
+    background-size: cover;
+    background-repeat: no-repeat;
+    color: var(--fontcolor);
+
+}
+
+img {
+    filter: saturate(50%) grayscale(60%);
+    max-width: 100%;
+    transition: 1s;
+}
+
+img:hover, img:focus {
+    filter: none;
+}
+
+h1 {
+    font-size: 38pt;
+}
+
+h2 {
+    font-size: 24pt;
+}
+
+h3 {
+    font-size: 18pt;
+}
+
+a {
+    text-decoration: double underline 1px;
+    font-weight: bold;
+    color: var(--gradientdark);
+}
+
+a:hover, a:focus {
+    filter: brightness(200%)
+}
+
+a:visited {filter:brightness(50%)}
+
+blockquote {
+    border-left: 2px solid var(--gradientdark);
+    padding-left: 10px;
+    font-style: italic;
+    text-align: justify;
+}
+
+button {
+    font-family: inherit;
+    font-size: 8pt;
+    border: 1px solid var(--gradientdark);
+    background-color: var(--paleborder);
+    padding: 4px;
+    border-radius: 10px;
+    color: var(--gradientdark);
+    cursor: pointer;
+}
+
+button:hover,button:focus {
+    border: 1px solid var(--paleborder)
+}
+
+button:active {
+    background-color: var(--gradientlight);
+}
+
+hr {
+    border-top: solid var(--gradientdark) 1px;
+    border-bottom: none;
+    margin-top: 25px;
+    margin-bottom: 25px;
+    width: 50%
+}
+
+.container {
+    margin: 50px auto;
+    width: 80%;
+    max-width: 900px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.main {
+    backdrop-filter: blur(9px) saturate(120%);
+    -webkit-backdrop-filter: blur(9px) saturate(120%);
+    background-color: var(--divbackground);
+    width: 100%;
+    border-radius: 75px;
+    border: var(--paleborder) solid 1px;
+    padding: 25px;
+    position: relative;
+}
+
+#coffee {
+    position: absolute;
+    top: -120px;
+    right: 0px;
+    z-index: 10;
+}
+
+#coffee summary {
+    list-style-type: none;
+}
+
+#coffee summary img {
+    cursor: pointer
+}
+
+.menucontainer {
+    position: relative;
+}
+
+.navmenu {
+    position: absolute;
+    background-color: var(--paleborder);
+    border-radius: 0px;
+    border: 1px solid var(--gradientdark);
+    box-shadow: 0px 5px 10px var(--gradientdark);
+    opacity: 0.87;
+    width: 175px;
+}
+
+.navmenu ul {
+    padding: 0;
+    margin: 0;
+}
+
+.navmenu li {
+    list-style-type: none;
+    border-bottom: 1px solid var(--gradientdark);
+    text-align: center;
+    padding: 5px;
+    background-color: var(--paleborder);
+}
+
+.navmenu li:hover, .navmenu li:focus {
+    background-color: var(--gradientdark);
+    color: var(--paleborder);
+}
+
+.navmenu a:hover, .navmenu a:focus {
+    filter: none;
+}
+
+.topofpage a {
+    height: 50px;
+    width: 50px;
+    background-color: var(--sunshine);
+    box-shadow: 0px 0px 30px 10px var(--sunshine);
+    border-radius: 100%;
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    opacity: 0.7;
+    transition:1s;
+}
+
+.topofpage a:hover, .topofpage a:focus {
+    filter: none;
+    opacity: 1
+}
+
+.insertR,.insertL {
+    width: 30%;
+    min-width:180px;
+    height: 250px;
+    border: var(--fontcolor) 1px solid;
+    shape-outside: margin-box;
+    overflow: auto;
+    scrollbar-width: thin;
+    padding: 10px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    background-color: var(--paleborder);
+    border-radius: 10px;
+}
+
+.insertR {
+    margin-left: 15px;
+    float: right
+}
+
+.insertL {
+    margin-right: 15px;
+    float: left;
+}
+@media only screen and (max-width: 650px) {
+    .container {
+        width: 95%
+    }
+
+    .main {
+        padding: 15px;
+        border-radius: 50px
+    }
+
+    h1 {
+        font-size: 28pt
+    }
+
+    h2 {
+        font-size: 20pt
+    }
+
+    .navmenu {
+        left: -20%
+    }
+
+    .topofpage a {
+        height: 30px;
+        width: 30px;
+    }
+
+    #coffee {
+        scale: 0.8
+    }
+}

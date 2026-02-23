@@ -1,0 +1,367 @@
+
+<!DOCTYPE html><html><head>
+    <meta name="viewport" charset="UTF-8" content="width=device-width">
+    <title>Movies &amp; Chill</title>
+	<link rel="icon" type="image/png" href="/favicon2.png">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Amatic+SC|Karla">
+
+	<style>
+body {
+  background-color: #CE7879;
+  font-family: "Karla", Arial, sans-serif;
+  color: #162719;
+  background: url("https://file.garden/ZA_UJlkUN2HXHENQ/images/backgrounds/brickbg.jpg");
+  background-attachment: fixed;
+  }
+
+.wrapper {
+  display: flex;
+  flex-wrap: nowrap;    /* keep sidebar + main on one row */
+  width: 90%;
+  margin: auto;
+}
+
+.header {
+	width: 80%;
+	margin: auto;
+	text-align: center;
+	font-family: "Amatic SC", Papyrus, fantasy;
+	color: #F2E8CF;
+	background: url("https://file.garden/ZA_UJlkUN2HXHENQ/images/backgrounds/woodbg.jpg");
+	border: 2px solid #162719;
+}
+
+.sidebar {
+  flex: 0 0 260px;      /* fixed sidebar width (adjust as desired) */
+  margin: 1%;
+}
+
+.imgbox {
+	border: 3px double #162719;
+	background: #7AAC5D;
+	margin-bottom: 3%;
+}
+
+.imgbox img {
+  max-width: 100%;
+  height: auto;
+  }
+
+.menu {
+	height: auto;
+	text-align: center;
+	line-height: 200%;
+	color: #F2E8CF;
+	background-color: #162719;
+	border: 10px solid;
+	border-image: url('https://file.garden/ZA_UJlkUN2HXHENQ/images/backgrounds/woodbg.jpg') 20% round;
+	outline: 2px solid #162719;
+}
+
+.main {
+  flex: 1 1 auto;       /* main takes remaining width */
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2% 2%;
+  align-content: flex-start; /* avoids big vertical gaps between rows */
+  align-items: flex-start;
+}
+
+.box {
+	height: auto;
+	overflow: auto;
+	padding: 2%;
+	background: #F2E8CF;
+	border: 3px double #162719;
+	margin: 1%;
+}
+
+.subbox {
+	width: 42%;
+	height: auto;
+	overflow: auto;
+	padding: 2%;
+	border: 3px double #162719;
+	background: #7AAC5D;
+	margin: 1%;
+}
+
+.subbox a:link, .subbox a:visited {
+	color: #F2E8CF;
+	text-decoration: none;
+}
+
+.subbox a:hover, .subbox a:active {
+	color: #CE7879;
+	text-decoration: underline;
+	}
+
+.footer {
+  width: 65%;
+  margin-left: 25%;
+  text-align: center;
+  font-family: "Amatic SC", Papyrus, fantasy;
+  color: #FFFFFF; /* brighter */
+  background: url("https://file.garden/ZA_UJlkUN2HXHENQ/images/backgrounds/woodbg.jpg");
+  border: 2px solid #162719;
+}
+
+.footer p {
+  margin: 0;
+  padding: 12px 10px;
+  text-shadow: 0 3px 4px rgba(0,0,0,0.85);
+}
+
+a:link, a:visited {
+	color: #7AAC5D;
+	text-decoration: none;
+	}
+
+a:hover, a:active {
+	color: #CE7879;
+	text-decoration: underline;
+	}
+
+h1, h2, h3, h4 {
+	font-family: "Amatic SC", Papyrus, fantasy;
+	margin: 0.25em;
+	padding: 0;
+	text-align: center;
+}
+
+h1 {
+	font-size: 3em;
+}
+
+h2 {
+	font-size: 2.5em;
+}
+
+h3 {
+	font-size: 2em;
+}
+
+h4 {
+	font-size: 1.5em;
+}
+
+hr {
+  width: 85%;
+  border-bottom: 3px double #386641;
+  border-top: none;
+  }
+
+.divider {
+  align-self: flex-start;
+  height: auto;
+  flex: 0 0 100%;
+  display: block;
+  width: 100%;
+  max-width: 80%;
+  margin: 0 auto 1rem;
+}
+
+.media-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.media-list li {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 12px;
+  align-items: flex-start;
+}
+
+.media-list img {
+  width: 60px;
+  height: auto;
+  border: 2px solid #162719;
+}
+
+.media-text p {
+  margin: 4px 0 0 0;
+  font-size: 0.9em;
+}
+
+#ivypot {
+	position: absolute;
+	top: 0;
+	right: 0;
+}
+
+/*** scrollbar ***/
+/* width */
+::-webkit-scrollbar {
+  width: 15px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #386641;
+  border: 1px solid;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #A7C957;
+  border: 1px solid;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #CE7879;
+}
+
+::-webkit-scrollbar-button {
+  background: #A7C957;
+}
+
+::-webkit-scrollbar-button:hover {
+  background: #CE7879;
+}
+
+::-webkit-scrollbar-button:single-button {
+  border: 1px solid;
+  height: 12px;
+}
+
+/* Up */
+::-webkit-scrollbar-button:single-button:vertical:decrement {
+  border-width: 0 8px 8px 8px;
+  border-color: transparent transparent #555555 transparent;
+}
+
+::-webkit-scrollbar-button:single-button:vertical:decrement:hover {
+  border-color: transparent transparent #777777 transparent;
+}
+/* Down */
+::-webkit-scrollbar-button:single-button:vertical:increment {
+  border-width: 8px 8px 0 8px;
+  border-color: #555555 transparent transparent transparent;
+}
+
+::-webkit-scrollbar-button:vertical:single-button:increment:hover {
+  border-color: #777777 transparent transparent transparent;
+}
+
+/*mobile view*/
+
+@media only screen and (max-width: 600px) {
+
+  .wrapper {
+    flex-wrap: wrap;
+  }
+
+  .sidebar {
+    flex: 1 1 100%;
+  }
+
+  .subbox {
+    width: 100%;
+  }
+
+  .hide {
+    display: none;
+  }
+
+}
+	</style>
+
+  </head>
+  <body>
+
+	<img src="https://file.garden/ZA_UJlkUN2HXHENQ/images/ivy.png" id="ivypot" class="hide">
+
+	<div class="header">
+        <h1>Wanna get cozy with a movie?</h1>
+      </div>
+
+	<div class="wrapper">
+
+  <div class="sidebar">
+	<div class="imgbox">
+	<img src="https://file.garden/ZA_UJlkUN2HXHENQ/images/clovercoffee.png">
+	</div>
+
+	<div class="menu">
+    <h2>menu</h2>
+	  <b><a href="/">Dorbi's Cafe</a><br>
+	  <a href="/books/index.html">Books</a><br>
+      <a href="/games/index.html">Games</a><br>
+      <a href="/tv/index.html">TV shows</a><br>
+      <a href="">Movies</a><br>
+      <a href="">Selfhosting</a><br>
+	  <a href="/visitor-log/index.html">Visitor Log</a><br></b>
+    </div>
+
+	</div>
+
+
+	<div class="main">
+    <div class="box">
+    <h3>Wanna put on a movie? Let's get cozy!</h3>
+    <hr>
+		
+    <p>I tend to put on movies in the background while I work on things or hang out with the family. More often than not, I put something on that I've already seen. Every couple of months though, we go to the movies and see something new!</p>
+
+    <p>This page is dedicated to the movies that I love the most, what I've watched recently, and what I'm anticipating coming out next!</p>
+
+	<hr>
+		
+	</div>
+
+	<img src="https://file.garden/ZA_UJlkUN2HXHENQ/images/plantpotdivider.gif" class="divider">
+
+    <div class="subbox">
+    <h3>All Time Favorites</h3>
+		
+		<ul class="media-list">
+			<li>
+				<img src="/images/LOTR.jpg" alt="LOTR Cover">
+				<div class="media-text">
+					<strong>The Lord of the Rings</strong>
+					<p>The Lord of the Rings has a very special place in my heart. My best friend from grade school introduced them to me in the 2nd grade. I had just wrapped up the latest Harry Potter book when he lent me a trade paperback version of the Lord of the Rings, containing all three books. Shortly after, <i>The Fellowship of the Ring</i> hit the theaters, and it was the most magnificent movie I've ever seen. To this day, I still believe that the effects stand up, and that it looks great, especially for its age. Following Frodo and the fellowship across Middle Earth is a cozy place that I find myself enjoying again and again, especially now that my oldest is a fan too!</p>
+				</div>
+			</li>
+
+			<li>
+				<img src="/images/Arrietty.jpg" alt="Arrietty Cover">
+				<div class="media-text">
+					<strong>The Secret Life of Arrietty</strong>
+					<p>This is actually one of the Miyazaki films that I didn't see until I was an adult. Our kids are huge Ghibli fans, and it wasn't until I sat down and watched Arrietty with them that I saw first hand how magical this film is. The music is whimsical, the setting is fantastical, and the movie is chock full of that bittersweet feeling that it seems Mr. Miyazaki does so well. This is one of the movies that I put on quite often when it's time for bed. It isn't loud, the music is soothing, and overall, I find myself enchanted.</p>
+				</div>
+		
+      </div>
+
+    <div class="subbox">
+    <h3>Recently Watched</h3>
+		<ul class="media-list">
+			<li>
+				<img src="/images/CSM_RA.jpg" alt="Reze Arc Cover">
+				<div class="media-text">
+					<strong>Chainsaw Man: Reze Arc</strong>
+					<p>This movie moved me in a way that I haven't felt in ages. We went to see this in theaters with some friends, and I binged the entire first season of the anime to prepare for the movie. I started Season 1 with very low expectations; I'd tried it before and found it...gross. However, the Reze Arc movie broke my heart in a way that I didn't know could happen from a film. Seeing Denji finally find someone who reciprocates his feelings, just to have that person ripped away from him, is just...devastating. Reze is a complicated character, and one that I don't fully understand yet, as I'm still reading the manga. But seeing her development throughout the movie, and since reading the arc in the manga, is a perfect example of character growth cut short. It's akin to Elhokar in <i>The Stormlight Archives</i>. That expectation of what comes next, just to have your hopes dashed so abruptly, hurts. This movie was beautiful, and I think about it all the time.</p>
+				</div>
+			</li>
+    </div>
+
+      <div class="subbox">
+    <h3>Watchlist</h3>
+		<ul class="media-list">
+			<li>
+				<img src="/images/CSM_RA.jpg" alt="Reze Arc Cover">
+				<div class="media-text">
+					<strong>Chainsaw Man: Reze Arc</strong>
+					<p>This movie moved me in a way that I haven't felt in ages. We went to see this in theaters with some friends, and I binged the entire first season of the anime to prepare for the movie. I started Season 1 with very low expectations; I'd tried it before and found it...gross. However, the Reze Arc movie broke my heart in a way that I didn't know could happen from a film. Seeing Denji finally find someone who reciprocates his feelings, just to have that person ripped away from him, is just...devastating. Reze is a complicated character, and one that I don't fully understand yet, as I'm still reading the manga. But seeing her development throughout the movie, and since reading the arc in the manga, is a perfect example of character growth cut short. It's akin to Elhokar in <i>The Stormlight Archives</i>. That expectation of what comes next, just to have your hopes dashed so abruptly, hurts. This movie was beautiful, and I think about it all the time.</p>
+				</div>
+			</li>
+    </div>
+
+	</div>
+
+    </div>
+
+	<div class="footer">
+    <p><b>Thanks for stopping by! Take care, and don't forget your towel!</b></p></div>
